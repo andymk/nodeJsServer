@@ -4,9 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint":"eslint app.js"
+    "lint": "eslint app.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,11 +16,24 @@
     "debug": "^4.1.1",
     "express": "^4.16.4",
     "jquery": "^3.3.1",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.10"
   },
   "devDependencies": {
     "eslint": "^5.14.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore":[
+      "node_modules/**/node_modules"
+    ],
+    "delay": "2500",
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": 4000,
+      "DEBUG": "app"
+    }
   }
 }
