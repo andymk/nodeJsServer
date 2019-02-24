@@ -76,7 +76,7 @@ const books = [
 
 router.route('/books')
   .get((req, res) => {
-    res.render('books',
+    res.render('bookListView',
       {
         title: 'My Library',
         nav: [
@@ -87,9 +87,18 @@ router.route('/books')
       });
   });
 
-router.route('/id')
+router.route('/books/:id')
   .get((req, res) => {
-    res.send('hello single book');
+    const { id } = req.params;
+    res.render('bookView',
+      {
+        title: 'My Library',
+        nav: [
+          { link: '/books', title: 'Books' },
+          { link: '/authors', title: 'Authors' }
+        ],
+        book: books[id]
+      });
   });
 
 module.exports = router;
